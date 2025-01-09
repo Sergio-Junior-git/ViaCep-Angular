@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { ViacepResult } from '../_models/ViaCepResult';
+import { ViaCepResults } from '../_models/ViacepResult';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class ViacepService {
   constructor(private Http: HttpClient) { }
 
   getEnderecoByCep(cep: string){
-    return this.Http.get<ViacepResult>
+    return this.Http.get<ViaCepResults>
     (this.apiUrl + cep + "/json/")
     .pipe(
       map((response) => {
